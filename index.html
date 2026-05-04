@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="description" content="Vernon Baloyi - IT Professional, Cybersecurity Analyst, Web Developer, and Data Analyst. Offering IT support, company registrations, CSD, web development, resume design, and more.">
+    <meta name="keywords" content="IT Support, Cybersecurity, Web Developer, Data Analyst, Company Registrations, CSD, Resume Design, Logo Design, South Africa">
+    <meta name="author" content="Vernon Baloyi">
+    <meta property="og:title" content="Vernon Baloyi · IT Professional & Innovator">
+    <meta property="og:description" content="Tech polymath: IT support, cybersecurity, web dev, data analytics. Let’s build solutions that matter.">
+    <meta property="og:type" content="website">
+    <title>Vernon Baloyi · IT Professional & Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-body: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --border-light: rgba(15, 103, 179, 0.12);
+            --card-shadow: 0 12px 28px rgba(0,0,0,0.04);
+            --tag-bg: #eef2ff;
+            --accent: #0f67b3;
+            --glow-color: rgba(15, 103, 179, 0.25);
+        }
+        body.dark {
+            --bg-body: #0f1724;
+            --surface: #1e293b;
+            --text-primary: #eef2ff;
+            --text-secondary: #94a3b8;
+            --border-light: rgba(15, 103, 179, 0.3);
+            --card-shadow: 0 12px 28px rgba(0,0,0,0.3);
+            --tag-bg: #2d3a5e;
+            --accent: #3b82f6;
+            --glow-color: rgba(59, 130, 246, 0.3);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+            line-height: 1.5;
+            transition: background 0.3s, color 0.2s;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(15, 103, 179, 0.04), #f8fafc);
+            pointer-events: none;
+            z-index: -2;
+        }
+        body.dark::before {
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08), #0f1724);
+        }
+        /* Floating blobs */
+        .floating-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+            animation: floatBlob 25s infinite alternate ease-in-out;
+        }
+        .blob-1 { width: 300px; height: 300px; background: rgba(15, 103, 179, 0.15); top: 10%; left: -100px; }
+        .blob-2 { width: 400px; height: 400px; background: rgba(59, 130, 246, 0.1); bottom: 5%; right: -150px; animation-duration: 30s; }
+        body.dark .blob-1 { background: rgba(59, 130, 246, 0.2); }
+        body.dark .blob-2 { background: rgba(15, 103, 179, 0.15); }
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -40px) scale(1.1); }
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(248, 250, 252, 0.96);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+        body.dark .navbar { background: rgba(15, 23, 36, 0.96); }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #0f67b3, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .dark-toggle {
+            background: var(--tag-bg);
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            transition: 0.2s;
+        }
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 20px 0;
+                background: var(--surface);
+                border-radius: 28px;
+                margin-top: 12px;
+            }
+            .nav-links.show { display: flex; }
+            .nav-flex { flex-wrap: wrap; }
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-outline:hover { background: var(--accent); color: white; transform: translateY(-3px);}
+        .hero { padding: 60px 0 40px; position: relative; overflow: hidden; }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-content { flex: 1; z-index: 2; }
+        .hero-badge { background: var(--tag-bg); display: inline-block; padding: 6px 14px; border-radius: 60px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 20px; }
+        .typed-text { font-size: 2rem; font-weight: 700; color: var(--accent); min-height: 80px; }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+        .hero-tags span { background: var(--tag-bg); padding: 6px 16px; border-radius: 40px; font-size: 0.85rem; }
+        .hero-buttons-area {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .hero-badge-small {
+            background: var(--tag-bg);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .floating-icon { position: absolute; top: 15%; right: 5%; opacity: 0.3; animation: floatAround 16s infinite; pointer-events: none; }
+        @keyframes floatAround { 0% { transform: translate(0,0) rotate(0deg);} 50% { transform: translate(20px,-25px) rotate(8deg);} 100% { transform: translate(0,0) rotate(0deg);} }
+        section { padding: 70px 0; border-bottom: 1px solid var(--border-light); background: transparent; position: relative; z-index: 2; }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; position: relative; display: inline-block; }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+        .section-title:hover:after { width: 100%; }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .cards-grid.two-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 700px) {
+            .cards-grid.two-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid var(--border-light);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.6s forwards;
+            animation-delay: calc(var(--order, 0) * 0.07s);
+        }
+        @keyframes cardFadeIn { to { opacity: 1; transform: translateY(0); } }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(15, 103, 179, 0.2), 0 0 0 2px var(--glow-color);
+        }
+        .cards-grid .card { --order: 0; }
+        .cards-grid .card:nth-child(1) { --order: 1; }
+        .cards-grid .card:nth-child(2) { --order: 2; }
+        .cards-grid .card:nth-child(3) { --order: 3; }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            left: 0;
+        }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 20px;
+            right: -10px;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(even)::after { left: -10px; }
+        .timeline-content {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: var(--card-shadow);
+        }
+        @media (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; left: 0; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 21px; right: auto; }
+            .timeline-item:nth-child(even)::after { left: 21px; }
+        }
+
+        /* Testimonial carousel */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            background: var(--surface);
+            padding: 30px 20px;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+
+        /* Form */
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            background: var(--surface);
+            color: var(--text-primary);
+        }
+        /* Sticky WhatsApp */
+        .sticky-wa {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: 0.2s;
+        }
+        .sticky-wa:hover { transform: scale(1.05); background: #128C7E; }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+        }
+        .back-to-top.show { opacity: 1; }
+        footer { text-align: center; padding: 28px 0; color: var(--text-secondary); }
+        @media (max-width: 600px) { .hero-grid { flex-direction: column-reverse; text-align: center; } }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: 0.7s; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-body);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+        .spinner { width: 50px; height: 50px; border: 5px solid var(--tag-bg); border-top: 5px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .whatsapp-btn { background: #25D366; color: white; border: none; }
+        .whatsapp-btn:hover { background: #128C7E; transform: translateY(-3px); }
+        .project-img { width: 100%; height: 160px; object-fit: cover; border-radius: 20px; margin-bottom: 16px; cursor: pointer; transition: 0.2s; }
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .lightbox.active { visibility: visible; opacity: 1; }
+        .lightbox img { max-width: 90%; max-height: 80%; border-radius: 20px; }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        /* Technical proficiency styles (original layout) */
+        .skill-bar-item { margin: 15px 0; }
+        .skill-bar-label { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .skill-bar-bg { background: var(--tag-bg); border-radius: 20px; height: 10px; overflow: hidden; }
+        .skill-bar-fill { width: 0%; height: 100%; background: var(--accent); border-radius: 20px; transition: width 1s ease; }
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .skill-badge {
+            background: var(--tag-bg);
+            padding: 8px 16px;
+            border-radius: 36px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Social icons spacing */
+        .social-links a {
+            font-size: 1.6rem;
+            margin-right: 20px;
+            color: var(--text-primary);
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .social-links a:hover { color: var(--accent); }
+        .social-links a:last-child { margin-right: 0; }
+    </style>
+</head>
+<body>
+<div class="floating-blob blob-1"></div><div class="floating-blob blob-2"></div>
+<div id="preloader"><div class="spinner"></div></div>
+
+<div class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">VB<span style="color:var(--accent);">.</span></div>
+        <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a><a href="#story">Story</a><a href="#proficiencies">Skills</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
+            <button id="darkModeToggle" class="dark-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div id="home"></div>
+    <div class="hero container">
+        <div class="floating-icon"><i class="fas fa-microchip" style="font-size: 5rem; color: var(--accent);"></i></div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-code"></i> Freelance Innovator</div>
+                <h1 style="font-size: 3rem;">Vernon Baloyi</h1>
+                <div class="typed-text" id="typedText"></div>
+                <p style="margin: 20px 0; color: var(--text-secondary);">Tech polymath: IT support, cybersecurity, web dev, data analytics. Let’s build solutions that matter.</p>
+                <div class="hero-tags">
+                    <span><i class="fas fa-laptop-code"></i> Tech Support</span>
+                    <span><i class="fas fa-shield-alt"></i> Security</span>
+                    <span><i class="fas fa-chart-line"></i> Data</span>
+                    <span><i class="fas fa-globe"></i> Web Dev</span>
+                </div>
+                <div class="hero-buttons-area">
+                    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                    <button id="downloadCVBtn" class="btn-outline btn"><i class="fas fa-download"></i> Download CV</button>
+                    <div class="hero-badge-small"><i class="fas fa-bolt"></i> Open for freelance projects</div>
+                </div>
+            </div>
+            <div style="flex:0.5; text-align:center;"><i class="fas fa-user-astronaut" style="font-size: 8rem; color: var(--accent); opacity: 0.7;"></i></div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="container stats-grid fade-up" id="statsSection" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; background: var(--surface); border-radius: 40px; padding: 30px 20px; margin: 40px 0; text-align: center;">
+        <div><div class="stat-number" id="certCount">0</div><div>Certifications</div></div>
+        <div><div class="stat-number" id="projectCount">0</div><div>Projects Done</div></div>
+        <div><div class="stat-number" id="expCount">0</div><div>Years Experience</div></div>
+        <div><div class="stat-number" id="clientCount">0</div><div>Happy Clients</div></div>
+    </div>
+
+    <!-- Story section: now with 3 cards to fill space -->
+    <section id="story"><div class="container">
+        <h2 class="section-title">📖 My story & what people say</h2>
+        <div class="cards-grid">
+            <div class="card"><i class="fas fa-seedling card-icon"></i><h3>Roots in Nkowankowa</h3><p>From Matric at DZJ Mtebule to Capricorn Tvet College, my journey is driven by curiosity. I believe tech should empower communities, and I bring that passion into every project.</p></div>
+            <div class="card"><i class="fas fa-rocket card-icon"></i><h3>Always Learning</h3><p>Google Cybersecurity, ALX Software Engineering, CCNA, Data Analytics — I collect skills like tools to solve real problems. Resilience and teamwork define me.</p></div>
+            <div class="card"><i class="fas fa-hand-peace card-icon"></i><h3>Mission & Values</h3><p>I deliver honest, high‑quality work with integrity. Every client gets personalized attention, quick turnaround, and clear communication. Let's turn your ideas into reality.</p></div>
+        </div>
+        <div style="margin-top: 40px;">
+            <div class="testimonial-carousel">
+                <button class="carousel-btn prev" id="prevTesti"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="testiTrack">
+                    <div class="testimonial-slide"><i class="fas fa-quote-left" style="color:var(--accent); font-size: 2rem;"></i><p>“Vernon upgraded our office network and replaced all HDDs with SSDs – incredible speed boost. Reliable, punctual, and skilled.”</p><strong>- Mr Chidi, Attorney</strong></div>
+                    <div class="testimonial-slide"><i class="fas fa-quote-left" style="color:var(--accent); font-size: 2rem;"></i><p>“He helped me register my company on CSD and built my business website. Professional and affordable!”</p><strong>- Thabo M., Entrepreneur</strong></div>
+                    <div class="testimonial-slide"><i class="fas fa-quote-left" style="color:var(--accent); font-size: 2rem;"></i><p>“Deep knowledge in cybersecurity and data. Vernon’s analysis on our customer data gave clear insights.”</p><strong>- Lindiwe R., Startup Owner</strong></div>
+                </div>
+                <button class="carousel-btn next" id="nextTesti"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- Technical proficiency: two cards with balanced grid -->
+    <section id="proficiencies"><div class="container">
+        <h2 class="section-title">⚡ Technical proficiency</h2>
+        <div class="cards-grid two-cards">
+            <div class="card">
+                <div class="skill-bar-item"><div class="skill-bar-label"><span>IT Support & Hardware</span><span>95%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95"></div></div></div>
+                <div class="skill-bar-item"><div class="skill-bar-label"><span>Cybersecurity</span><span>88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+                <div class="skill-bar-item"><div class="skill-bar-label"><span>Web Development</span><span>82%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="82"></div></div></div>
+                <div class="skill-bar-item"><div class="skill-bar-label"><span>Data Analytics</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div></div>
+            </div>
+            <div class="card">
+                <h3>Languages & Tools</h3>
+                <div class="skills-cloud">
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">Visual Basic</span>
+                    <span class="skill-badge">C</span>
+                    <span class="skill-badge">HTML</span>
+                    <span class="skill-badge">CSS</span>
+                    <span class="skill-badge">JavaScript</span>
+                </div>
+                <div class="skills-cloud" style="margin-top: 8px;">
+                    <span class="skill-badge">Git</span>
+                    <span class="skill-badge">Linux</span>
+                    <span class="skill-badge">Wireshark</span>
+                </div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- Projects with real images + lightbox -->
+    <section id="projects"><div class="container">
+        <h2 class="section-title">🚀 Featured Work</h2>
+        <div class="cards-grid">
+            <div class="card"><img class="project-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Data Dashboard" loading="lazy"><h3>Data Dashboard for Retail</h3><p>Interactive Python dashboard analyzing sales trends; used pandas & plotly.</p><a href="#contact" class="btn-outline btn" style="padding:8px 16px;">Contact for case study →</a></div>
+            <div class="card"><img class="project-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=200&fit=crop" alt="Security Audit" loading="lazy"><h3>Security Audit & Hardening</h3><p>Full network vulnerability assessment for a law firm, firewall rules.</p><a href="#contact" class="btn-outline btn" style="padding:8px 16px;">Ask for details →</a></div>
+            <div class="card"><img class="project-img" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=200&fit=crop" alt="Web Dev" loading="lazy"><h3>Portfolio Website for Artist</h3><p>Custom responsive website with CMS integration, boosting online presence.</p><a href="#contact" class="btn-outline btn" style="padding:8px 16px;">Request live demo →</a></div>
+        </div>
+    </div></section>
+
+    <!-- Services -->
+    <section id="services"><div class="container">
+        <h2 class="section-title">🤝 Services I Provide</h2>
+        <div class="cards-grid">
+            <div class="card"><i class="fas fa-building" style="font-size:2rem;"></i><h3>Company Registrations</h3><p>CIPC, tax PIN, compliance.</p></div>
+            <div class="card"><i class="fas fa-id-card"></i><h3>CSD Registrations</h3><p>Central Supplier Database for tenders.</p></div>
+            <div class="card"><i class="fas fa-globe"></i><h3>Web Development</h3><p>Modern, fast websites, e-commerce.</p></div>
+            <div class="card"><i class="fas fa-graduation-cap"></i><h3>Varsity Applications</h3><p>University admission help.</p></div>
+            <div class="card"><i class="fas fa-file-alt"></i><h3>Resume Design</h3><p>ATS-friendly CV design.</p></div>
+            <div class="card"><i class="fas fa-paint-brush"></i><h3>Logo Design</h3><p>Custom modern logos.</p></div>
+            <div class="card"><i class="fas fa-id-card"></i><h3>Business Cards</h3><p>Creative print-ready designs.</p></div>
+            <div class="card"><i class="fas fa-envelope-open-text"></i><h3>Letterhead</h3><p>Professional stationery.</p></div>
+        </div>
+        <div class="card fade-up" style="margin-top:24px; text-align:center; background:var(--tag-bg);"><i class="fab fa-whatsapp" style="font-size:2rem; color:#25D366;"></i><p><strong>Need a quick consultation?</strong> Message me on WhatsApp — I reply fast!</p><a href="https://wa.me/27719177688?text=Hello%20Vernon%2C%20I%20need%20assistance" target="_blank" class="btn whatsapp-btn" style="margin-top:12px;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a></div>
+    </div></section>
+
+    <!-- Timeline with all certificates (2025 dates for Google certs) -->
+    <section id="timeline"><div class="container">
+        <h2 class="section-title">📅 Journey & Milestones</h2>
+        <div class="timeline">
+            <div class="timeline-item"><div class="timeline-content"><h3>🎓 Matric (Grade 12)</h3><p>DZJ Mtebule High School | 2018</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>🎓 IT & Computer Science NQF 2-4</h3><p>Capricorn Tvet College | 2020-2022</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>💼 Computer Technician</h3><p>Chidi's Attorney Company | 2022-2023</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>📜 Google IT Support</h3><p>Coursera | 2022</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>🔒 Google Cybersecurity</h3><p>Coursera | 2025</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>📊 Google Data Analytics</h3><p>Coursera | 2025</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>🎨 Google UX Design</h3><p>Coursera | 2025</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>🌐 CCNAv7: Introduction to Networks</h3><p>Cisco Networking Academy | 2024</p></div></div>
+            <div class="timeline-item"><div class="timeline-content"><h3>🚀 ALX Software Engineering</h3><p>ALX Africa | 2024 - Present</p></div></div>
+        </div>
+    </div></section>
+
+    <!-- Contact + Web3Forms (working email submission) -->
+    <section id="contact" style="background: var(--tag-bg);"><div class="container">
+        <h2 class="section-title">📬 Let's connect</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+            <div style="flex:1;">
+                <p><i class="fas fa-phone-alt"></i> +27 71 917 7688</p>
+                <p><i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>WhatsApp:</strong> +27 71 917 7688 <a href="https://wa.me/27719177688?text=Hello" target="_blank" class="btn whatsapp-btn" style="padding:6px 16px;"><i class="fab fa-whatsapp"></i> Chat</a></p>
+                <p><i class="fas fa-envelope"></i> vernonbaloyi41@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 742 D Mandela Street, Nkowankowa 0870</p>
+                <div class="social-links">
+                    <a href="https://github.com/baloyi97/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/27719177688" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:vernonbaloyi41@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div style="flex:1; background:var(--surface); border-radius:28px; padding:24px;">
+                <h3>Send a message</h3>
+                <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="85eb6c14-02fd-4fd4-918d-015b61520eed">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    <input type="text" name="name" id="formName" placeholder="Your Name" required>
+                    <input type="email" name="email" id="formEmail" placeholder="Your Email" required>
+                    <textarea name="message" id="formMessage" rows="4" placeholder="Tell me about your project..."></textarea>
+                    <button type="submit" class="btn">Send <i class="fas fa-paper-plane"></i></button>
+                    <div id="formStatus" style="margin-top: 12px; font-size: 0.85rem;"></div>
+                </form>
+                <p style="font-size:0.8rem; margin-top:12px;">Your message is sent directly to my inbox. I'll reply within 24h.</p>
+                <p style="font-size:0.75rem; opacity:0.7; margin-top:6px;">💡 For instant response, use WhatsApp.</p>
+            </div>
+        </div>
+    </div></section>
+</main>
+<footer><div class="container"><p>© 2026 Vernon Baloyi — Freelancer IT | Driving digital progress</p><p><i class="fas fa-heart" style="color:var(--accent);"></i> Problem solver, team player, innovator.</p></div></footer>
+<a href="https://wa.me/27719177688?text=Hi%20Vernon%2C%20I%20need%20your%20services" class="sticky-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<div id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+<div id="lightbox" class="lightbox"><span class="lightbox-close">&times;</span><img id="lightboxImg" src="" alt=""></div>
+
+<script>
+    // Preloader
+    window.addEventListener('load', () => { setTimeout(() => { const p = document.getElementById('preloader'); if(p) p.style.opacity = '0'; setTimeout(() => { if(p) p.style.display = 'none'; }, 500); }, 300); });
+    // Typing
+    const roles = ["IT Professional", "Cybersecurity Analyst", "Web Developer", "Data Analyst", "Problem Solver"];
+    let ri=0, ci=0, del=false; const ts=document.getElementById('typedText');
+    function typeEffect(){ const cur=roles[ri]; if(del) ts.innerText=cur.substring(0,ci--); else ts.innerText=cur.substring(0,ci++); if(!del && ci===cur.length+1) del=true; else if(del && ci===0){ del=false; ri=(ri+1)%roles.length; } setTimeout(typeEffect, del?70:120); } typeEffect();
+    // Dark mode + system pref
+    const darkToggle = document.getElementById('darkModeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) document.body.classList.add('dark');
+    darkToggle.addEventListener('click', () => { document.body.classList.toggle('dark'); localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); });
+    // Stats counter
+    function animateCounter(el, t){ let cur=0, inc=t/50; let timer=setInterval(()=>{ cur+=inc; if(cur>=t){ clearInterval(timer); el.innerText=t; } else el.innerText=Math.floor(cur); },30); }
+    new IntersectionObserver((entries,obs)=>{ entries.forEach(e=>{ if(e.isIntersecting){ animateCounter(document.getElementById('certCount'),9); animateCounter(document.getElementById('projectCount'),14); animateCounter(document.getElementById('expCount'),4); animateCounter(document.getElementById('clientCount'),27); obs.disconnect(); } }); },{threshold:0.3}).observe(document.getElementById('statsSection'));
+    // Progress bars
+    const barObs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.skill-bar-fill').forEach(f=>{ let w=f.getAttribute('data-width'); if(w) f.style.width=w+'%'; }); barObs.unobserve(e.target); } }); },{threshold:0.2});
+    document.querySelectorAll('.card').forEach(c=>barObs.observe(c));
+    
+    // ======================================================
+    // SIMPLE CV DOWNLOAD BUTTON - DIRECT DOWNLOAD (no fetch)
+    // ======================================================
+    // IMPORTANT: Make sure your PDF file is named exactly "Vernon_Baloyi_CV.pdf"
+    // and placed in the SAME FOLDER as this HTML file.
+    const downloadBtn = document.getElementById('downloadCVBtn');
+    const pdfFileName = 'Vernon_Baloyi_CV.pdf';  // <-- CHANGE THIS TO YOUR ACTUAL PDF FILE NAME IF DIFFERENT
+    
+    downloadBtn.addEventListener('click', function() {
+        const originalText = downloadBtn.innerHTML;
+        // Create a temporary anchor and trigger download
+        const link = document.createElement('a');
+        link.href = pdfFileName;
+        link.download = pdfFileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Show a brief success message
+        downloadBtn.innerHTML = '<i class="fas fa-check"></i> Download started';
+        setTimeout(() => {
+            downloadBtn.innerHTML = originalText;
+        }, 1500);
+    });
+    
+    // Back to top, mobile menu, smooth scroll
+    const backBtn=document.getElementById('backToTop'); window.addEventListener('scroll',()=>{ if(window.scrollY>400) backBtn.classList.add('show'); else backBtn.classList.remove('show'); }); backBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    const menuToggle=document.getElementById('menuToggle'), navLinks=document.getElementById('navLinks'); menuToggle.addEventListener('click',()=>{ navLinks.classList.toggle('show'); const icon=menuToggle.querySelector('i'); if(navLinks.classList.contains('show')) icon.classList.replace('fa-bars','fa-times'); else icon.classList.replace('fa-times','fa-bars'); });
+    document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{ if(window.innerWidth<=768){ navLinks.classList.remove('show'); menuToggle.querySelector('i').className='fas fa-bars'; } }));
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){ const t=document.querySelector(this.getAttribute('href')); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); } }));
+    // Testimonial carousel
+    let curr=0; const track=document.getElementById('testiTrack'), slides=document.querySelectorAll('.testimonial-slide'), total=slides.length; document.getElementById('prevTesti').addEventListener('click',()=>{ curr=(curr-1+total)%total; track.style.transform=`translateX(-${curr*100}%)`; }); document.getElementById('nextTesti').addEventListener('click',()=>{ curr=(curr+1)%total; track.style.transform=`translateX(-${curr*100}%)`; });
+    // Lightbox for project images
+    const imgs=document.querySelectorAll('.project-img'), lightbox=document.getElementById('lightbox'), lightboxImg=document.getElementById('lightboxImg'); imgs.forEach(img=>{ img.addEventListener('click',()=>{ lightbox.classList.add('active'); lightboxImg.src=img.src; }); }); document.querySelector('.lightbox-close').addEventListener('click',()=>{ lightbox.classList.remove('active'); }); lightbox.addEventListener('click',(e)=>{ if(e.target===lightbox) lightbox.classList.remove('active'); });
+    // Fade-up observer
+    new IntersectionObserver((entries,obs)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); },{threshold:0.1}).observe(document.querySelectorAll('.fade-up'));
+
+    // Web3Forms submission handler
+    const web3Form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    web3Form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(web3Form);
+        formStatus.innerHTML = '<span style="color: #3b82f6;"><i class="fas fa-spinner fa-pulse"></i> Sending message...</span>';
+        try {
+            const response = await fetch(web3Form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                formStatus.innerHTML = '<span style="color: #10b981;"><i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.</span>';
+                web3Form.reset();
+                setTimeout(() => formStatus.innerHTML = '', 5000);
+            } else {
+                throw new Error('Server responded with error');
+            }
+        } catch (error) {
+            formStatus.innerHTML = '<span style="color: #ef4444;"><i class="fas fa-exclamation-circle"></i> Failed to send. Please try again or contact me via WhatsApp.</span>';
+            setTimeout(() => formStatus.innerHTML = '', 5000);
+        }
+    });
+</script>
+</body>
+</html>
